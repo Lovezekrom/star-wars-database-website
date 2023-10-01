@@ -1,3 +1,4 @@
+/*Navigation bar*/
 nav {
     font-size: 50px;
     text-align: center;
@@ -14,10 +15,19 @@ a:hover {
     color: white;
 }
 
+/*Search bar*/
 form {
     text-align: center;
 }
 
+.text_input {
+    font-size: 25px;
+    font-family: starjout, sans-serif;
+    height: 25px;
+    width: 90%;
+}
+
+/*Body*/
 body {
     color: white;
 
@@ -40,4 +50,9 @@ h1 {
 @font-face {
     font-family: starjedi;
     src: url(../fonts/Starjedi.ttf);
+}
+
+@font-face {
+    font-family: starjout;
+    src: url(../fonts/Starjout.ttf);
 }
