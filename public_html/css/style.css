@@ -1,5 +1,24 @@
-/* Styles, styles, styles! */
+nav {
+    font-size: 50px;
+    text-align: center;
+}
+
+a {
+    color: yellow;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+}
+
+form {
+    text-align: center;
+}
+
 body {
+    color: white;
+
     background-image: url('../img/stars_background.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;

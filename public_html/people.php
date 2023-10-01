@@ -17,6 +17,15 @@
     <a href="people.php">People</a>
 </nav>
 
+<hr>
+
+<!-- Search -->
+<form>
+    <label for="search-bar"></label>
+    <input placeholder="Search" type="text" id="search-bar" />
+    <input type="submit">
+</form>
+
 <h1>People</h1>
 
 <?php
