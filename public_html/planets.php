@@ -7,6 +7,16 @@
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 </head>
 <body>
+<img src="img/star_wars_logo.png" width="10%" class="centre" alt="Star Wars logo"/>
+
+<!-- Navigation -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="films.php">Films</a>
+    <a href="planets.php">Planets</a>
+    <a href="people.php">People</a>
+</nav>
+
 <h1>Planets</h1>
 
 <?php
