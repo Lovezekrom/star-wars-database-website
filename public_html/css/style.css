@@ -18,17 +18,28 @@ a:hover {
 /*Search bar*/
 form {
     text-align: center;
+    display: flex;
 }
 
-.text_input {
-    font-size: 25px;
+#search-bar {
     font-family: starjout, sans-serif;
+    font-size: 25px;
+    color: white;
+
     height: 25px;
-    width: 90%;
+    width: 100%;
+    background-color: #343434;
+
+    border: 5px solid #343434;
+    border-radius: 8px;
+
+    outline: none;
 }
 
 /*Body*/
 body {
+    padding-left: 80px;
+    padding-right: 80px;
     color: white;
 
     background-image: url('../img/stars_background.jpg');
