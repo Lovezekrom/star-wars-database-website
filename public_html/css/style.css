@@ -1,1 +1,11 @@
 /* Styles, styles, styles! */
+body {
+    background-image: url('../img/stars_background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+h1 {
+    color: yellow;
+}
