@@ -23,7 +23,7 @@
 <!-- Search -->
 <form>
     <label for="search-bar"></label>
-    <input placeholder="SEARCH" type="text" id="search-bar" class="text_input"/>
+    <input placeholder="SEARCH" type="text" id="search-bar"/>
     <button type="submit"><i class="material-icons">search</i></button>
 </form>
 
