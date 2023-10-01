@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-<img src="img/star_wars_logo.png" width="10%" class="centre" alt="Star Wars logo"/>
+<img src="img/star_wars_logo.png" id="main-logo" alt="Star Wars logo"/>
 
 <!-- Navigation -->
 <nav>
