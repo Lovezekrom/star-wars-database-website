@@ -1,22 +1,21 @@
 #main-logo {
     display: block;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 10%;
+    margin: 20px auto 5px;
+    width: 15%;
 }
 
 /*Navigation bar*/
 .nav-bar {
-    font-size: 50px;
     text-align: center;
 }
 
 .nav-bar a {
+    font-size: 30px;
     font-family: starjedi, sans-serif;
     color: yellow;
     text-decoration: none;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .nav-bar a:hover {
@@ -81,7 +80,19 @@ body {
 }
 
 h1 {
-    color: yellow;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    font-family: starjedi, sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.grid-container div {
+    margin: auto;
 }
 
 @font-face {
