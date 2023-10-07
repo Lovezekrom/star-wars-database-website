@@ -41,7 +41,7 @@
         while($row = $res->fetch(PDO::FETCH_ASSOC)) {
             echo "<div>";
             echo $row['film_title'] . "<br />";
-            echo "<a href='films.php?id=" . $row['filmID'] ."'><img height='300' src='" . $row['image_url'] . "' /></a><br />";
+            echo "<a href='films.php?id=" . $row['filmID'] ."'><img height='400' src='" . $row['image_url'] . "' /></a><br />";
             echo $row['film_release_date'] . "<br /><br />";
             echo "</div>";
         }
