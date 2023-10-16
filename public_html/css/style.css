@@ -97,6 +97,28 @@ h1 {
     margin: auto;
 }
 
+.grid-container-2 {
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: auto auto;
+    background: #343434;
+    font-family: Arial, serif;
+    font-size: 130%;
+    color: white;
+}
+
+#opening-crawl {
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+#movie-info {
+    border-radius: 0 25px 25px 0;
+    background: #474747;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
 @font-face {
     font-family: starjedi;
     src: url(../fonts/Starjedi.ttf);
