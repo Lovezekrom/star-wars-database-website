@@ -112,11 +112,25 @@ h1 {
     padding: 15px;
 }
 
+#opening-crawl img {
+    height: 200px;
+}
+
 #movie-info {
-    border-radius: 0 25px 25px 0;
-    background: #474747;
+    /*border-radius: 0 25px 25px 0;*/
+    /*background: #474747;*/
     box-sizing: border-box;
-    padding: 15px;
+    padding: 25px;
+}
+
+.panel-info-title-row {
+    background: black;
+    padding: 2.5%;
+}
+
+.panel-info-row {
+    background: grey;
+    padding: 2.5%;
 }
 
 @font-face {

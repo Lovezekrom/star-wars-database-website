@@ -96,7 +96,7 @@ if (!isset($_GET['id'])) {
         echo "<b>Characters</b>";
         echo "<br><br>";
         $get_people = "
-            SELECT distinct people.people_name 
+            SELECT distinct people.people_name, people.image_url
             FROM people, film_people, film 
             WHERE film.filmID={$_GET['id']}
             and film.filmID = film_people.filmID
@@ -104,16 +104,19 @@ if (!isset($_GET['id'])) {
         $people_result = $open_review_s_db->query($get_people);
         while ($film_people = $people_result->fetch(PDO::FETCH_ASSOC)) {
             echo $film_people['people_name'] . "<br>";
+            echo "<img alt='{$film_people['people_name']}' height='400' src='".$film_people['image_url']."'/><br/>";
+            echo "<br>";
         }
         echo "</div>";
 
         // Right panel
         echo "<div id='movie-info'>";
-        echo "<img alt='poster' height='400' src='" . $film_info['image_url'] . "'/><br />";
-        echo "<b>Directed by</b><br>" . $film_info['film_director'] . "<br><br>";
+        echo "<img alt='poster' height='400' src='".$film_info['image_url']."'/><br/>";
+        echo "<div class='panel-info-title-row'><b>Directed by</b></div>";
+        echo "<div class='panel-info-row'>".$film_info['film_director']."</div>";
 
         // Producers of the film
-        echo "<b>Produced by</b><br>";
+        echo "<div class='panel-info-title-row'><b>Produced by</b></div>";
         $get_producers = "
             SELECT distinct producer.producer_name 
             FROM producer, film_producer, film 
@@ -122,10 +125,10 @@ if (!isset($_GET['id'])) {
             and film_producer.producerID=producer.producerID";
         $producers_result = $open_review_s_db->query($get_producers);
         while ($film_producer = $producers_result->fetch(PDO::FETCH_ASSOC)) {
-            echo $film_producer['producer_name'] . "<br>";
+            echo "<div class='panel-info-row'>".$film_producer['producer_name']."</div>";
         }
-        echo "<br>";
-        echo "<b>Released on</b><br>" . $film_info['film_release_date'] . "<br>";
+        echo "<div class='panel-info-title-row'><b>Released on</b></div>";
+        echo "<div class='panel-info-row'>".$film_info['film_release_date']."</div>";
         echo "</div>";
         echo "</div>";
     } catch (PDOException $e) {
