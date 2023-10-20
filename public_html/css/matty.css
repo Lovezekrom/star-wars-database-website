@@ -1,9 +1,8 @@
-
-.films:hover {
+.grow:hover {
     transition: 0.3s ease-in;
-    opacity: 0.5;
+    /*opacity: 0.5;*/
     scale: 105%;
-    background-color: black;
+    /*background-color: black;*/
 }
 
 .topnav {
@@ -20,22 +19,22 @@
     /*background: none;*/
 }
 
-.topnav a:hover {
+.glow:hover {
     webkit-animation: glow 1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
 }
 
-/* Fading animation */
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
+/*!* Fading animation *!*/
+/*.fade {*/
+/*    animation-name: fade;*/
+/*    animation-duration: 1.5s;*/
+/*}*/
 
-@keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-}
+/*@keyframes fade {*/
+/*    from {opacity: .4}*/
+/*    to {opacity: 1}*/
+/*}*/
 
 
 /* Glow affect */

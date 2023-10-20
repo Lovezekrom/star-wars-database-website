@@ -5,6 +5,9 @@
     <title>Star Wars Database - Planets</title>
     <link rel="stylesheet" href="css/stylesheet.css" />
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/matty.css" />
+    <link rel="stylesheet" href="css/stylesheet.css" />
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -16,11 +19,11 @@
 
     <!-- Navigation -->
     <div class="container-fluid mb-2">
-        <nav class="nav justify-content-center proj-font-jedi fs-2">
-            <a class="nav-item nav-link" href="index.html">Home</a>
-            <a class="nav-item nav-link" href="films.php">Films</a>
-            <a class="nav-item nav-link" href="planets.php">Planets</a>
-            <a class="nav-item nav-link" href="people.php">People</a>
+        <nav class="nav justify-content-center proj-font-jedi fs-2 topnav">
+            <a class="nav-item nav-link glow" href="index.html">Home</a>
+            <a class="nav-item nav-link glow" href="films.php">Films</a>
+            <a class="nav-item nav-link glow" href="planets.php">Planets</a>
+            <a class="nav-item nav-link glow" href="people.php">People</a>
         </nav>
     </div>
 
@@ -74,8 +77,8 @@
             $query = "SELECT planetID, planet_name, image_url FROM planet";
             $result = $open_review_s_db->query($query);
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                echo "<div class='col proj-font-jedi text-center position-relative proj-overflow mb-5'>";
-                echo "<a class='stretched-link link-underline link-underline-opacity-0' href='planets.php?id={$row['planetID']}'>";
+                echo "<div class='col proj-font-jedi text-center position-relative proj-overflow mb-5 grow'>";
+                echo "<a class='stretched-link link-underline link-underline-opacity-0 glow' href='planets.php?id={$row['planetID']}'>";
                 echo $row['planet_name'];
                 echo "</a>";
                 echo '<br>';

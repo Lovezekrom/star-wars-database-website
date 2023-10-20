@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Star Wars Database - People</title>
+    <link rel="stylesheet" href="css/matty.css" />
     <link rel="stylesheet" href="css/stylesheet.css" />
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -16,11 +17,11 @@
 
     <!-- Navigation -->
     <div class="container-fluid mb-2">
-        <nav class="nav justify-content-center proj-font-jedi fs-2">
-            <a class="nav-item nav-link" href="index.html">Home</a>
-            <a class="nav-item nav-link" href="films.php">Films</a>
-            <a class="nav-item nav-link" href="planets.php">Planets</a>
-            <a class="nav-item nav-link" href="people.php">People</a>
+        <nav class="nav justify-content-center proj-font-jedi fs-2 topnav">
+            <a class="nav-item nav-link glow" href="index.html">Home</a>
+            <a class="nav-item nav-link glow" href="films.php">Films</a>
+            <a class="nav-item nav-link glow" href="planets.php">Planets</a>
+            <a class="nav-item nav-link glow" href="people.php">People</a>
         </nav>
     </div>
 
@@ -74,8 +75,8 @@
             $query = "SELECT peopleID, people_name, image_url FROM people";
             $result = $open_review_s_db->query($query);
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                echo "<div class='col proj-font-jedi text-center position-relative proj-overflow mb-5'>";
-                echo "<a class='stretched-link link-underline link-underline-opacity-0' href='people.php?id={$row['peopleID']}'>";
+                echo "<div class='col proj-font-jedi text-center position-relative proj-overflow mb-5 grow'>";
+                echo "<a class='stretched-link link-underline link-underline-opacity-0 glow' href='people.php?id={$row['peopleID']}'>";
                 echo $row['people_name'];
                 echo "</a>";
                 echo '<br>';
@@ -109,8 +110,39 @@
 
             // Person image
             $new_url = str_replace('/revision/latest', '', $currentPerson['image_url']);
-            echo "<img class='mx-auto d-block rounded-2' alt='{$currentPerson['people_name']}' width='100%' src='{$new_url}'/>";
+            echo "<img class='mx-auto d-block rounded-2' data-bs-toggle='modal' data-bs-target='#imgModal' alt='{$currentPerson['people_name']}' width='100%' src='{$new_url}'/>";
             echo "<br/>";
+
+
+            //<!-- Modal -->
+            echo "
+            <div class='text-black modal fade' id='imgModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+              <div class='modal-dialog modal-xl'>
+                <div class='modal-content'>
+                  <div class='modal-header'>
+                    <h1 class='modal-title fs-5 text-capitalize' id='exampleModalLabel'>{$currentPerson['people_name']}</h1>
+                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                  </div>
+                  <div class='modal-body'>
+                    <img class='img-fluid d-block mx-auto' src='{$new_url}'/>
+                  </div>
+                  <div class='modal-footer'>
+                    <button type='button' class='btn btn-primary' data-bs-dismiss='modal'>Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            ";
+
+
+
+
+
+
+
+
+
+
 
             // Name
             echo '<div class="text-capitalize mb-2 p-2 proj-bg-deep-grey rounded-2">';
