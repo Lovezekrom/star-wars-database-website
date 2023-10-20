@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Star Wars Database - Films</title>
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/stylesheet.css" />
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -17,7 +18,7 @@
 
         <!-- Navigation -->
         <div class="container-fluid mb-2">
-            <nav class="nav justify-content-center proj-font-jedi fs-2">
+            <nav class="nav justify-content-center proj-font-jedi fs-2 topnav">
                 <a class="nav-item nav-link" href="index.html">Home</a>
                 <a class="nav-item nav-link" href="films.php">Films</a>
                 <a class="nav-item nav-link" href="planets.php">Planets</a>
@@ -75,7 +76,7 @@
                     $query = "SELECT filmID, film_title, film_release_date, image_url FROM film";
                     $result = $open_review_s_db->query($query);
                     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                        echo "<div class='col proj-font-jedi text-center position-relative proj-overflow mb-5'>";
+                        echo "<div class='col proj-font-jedi text-center position-relative proj-overflow mb-5 films'>";
                         echo "<a class='stretched-link link-underline link-underline-opacity-0' href='films.php?id={$row['filmID']}'>";
                         echo $row['film_title'];
                         echo "</a>";

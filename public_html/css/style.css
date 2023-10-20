@@ -1,144 +1,58 @@
-#main-logo {
-    display: block;
-    margin: 20px auto 5px;
-    width: 15%;
+
+.films:hover {
+    transition: 0.3s ease-in;
+    opacity: 0.5;
+    scale: 105%;
+    background-color: black;
 }
 
-/*Navigation bar*/
-.nav-bar {
-    text-align: center;
+.topnav {
+    /*margin-bottom: 10px;*/
+    /*text-align: center;*/
 }
 
-.nav-bar a {
-    font-size: 30px;
-    font-family: starjedi, sans-serif;
-    color: yellow;
-    text-decoration: none;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.nav-bar a:hover {
-    color: white;
-}
-
-/*Search bar*/
-.search-bar {
-    display: flex;
-
-    height: 50px;
-    width: 100%;
-    background: #343434;
-
-    align-items: center;
-
-    border: 5px solid #343434;
-    border-radius: 30px;
-
-    justify-content: center;
-}
-
-.search-bar input {
-    flex: auto;
-
-    font-family: starjout, sans-serif;
-    font-size: 25px;
-    color: white;
-
-    background: transparent;
-    border-style: none;
-    outline: none;
-
+.topnav a {
+    font-size: 3.5vw;
     margin-left: 20px;
-}
-
-.search-bar button {
-    border-style: none;
-    background: transparent;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    text-align: center;
     margin-right: 20px;
-    color: grey;
+    /*color: mintcream;*/
+    /*font-family: navfont, serif;*/
+    /*background: none;*/
 }
 
-.search-bar button:hover {
-    color: white;
+.topnav a:hover {
+    webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
 }
 
-/*Body*/
-body {
-    padding-left: 80px;
-    padding-right: 80px;
-    color: white;
-
-    background-image: url('../img/stars_background.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
 }
 
-h1 {
-    color: white;
-    text-align: center;
-    font-size: 40px;
-    font-family: starjedi, sans-serif;
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+
+/* Glow affect */
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 5px #f2f2f2;
+    }
+    to {
+        text-shadow: 0 0 10px #f2f2f2;
+    }
 }
 
-.grid-container div {
-    text-align: center;
-    font-family: starjedi, sans-serif;
-    margin: auto;
-}
-
-.grid-container-2 {
-    border-radius: 25px;
-    display: grid;
-    grid-template-columns: auto auto;
-    background: #343434;
-    font-family: Arial, serif;
-    font-size: 130%;
-    color: white;
-}
-
-#opening-crawl {
-    box-sizing: border-box;
-    padding: 15px;
-}
-
-#opening-crawl img {
-    height: 200px;
-}
-
-#movie-info {
-    /*border-radius: 0 25px 25px 0;*/
-    /*background: #474747;*/
-    box-sizing: border-box;
-    padding: 25px;
-}
-
-.panel-info-title-row {
-    background: black;
-    padding: 2.5%;
-}
-
-.panel-info-row {
-    background: grey;
-    padding: 2.5%;
-}
-
-@font-face {
-    font-family: starjedi;
-    src: url(../fonts/Starjedi.ttf);
-}
-
-@font-face {
-    font-family: starjout;
-    src: url(../fonts/Starjout.ttf);
+@-webkit-keyframes glow1 {
+    from {
+        text-shadow: 0 0 5px #00bfd4;
+    }
+    to {
+        text-shadow: 0 0 10px #00bfd4;
+    }
 }
