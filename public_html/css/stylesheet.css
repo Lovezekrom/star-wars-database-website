@@ -1,0 +1,57 @@
+body {
+    background-image: url('../img/stars_background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.proj-overflow {
+    color: yellow;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.proj-overflow:hover {
+    color: white;
+}
+
+.proj-img-width-15 {
+    width: 15%;
+}
+
+.proj-grid-4 {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.proj-font-jedi {
+    font-family: starjedi, sans-serif;
+}
+
+.proj-font-jedi a {
+    color: yellow;
+}
+
+.proj-font-jedi a:hover {
+    font-family: starjedi, sans-serif;
+    color: white;
+}
+
+.proj-font-jout {
+    font-family: starjout, sans-serif;
+}
+
+.proj-bg-deep-grey {
+    background: #343434;
+}
+
+@font-face {
+    font-family: starjedi;
+    src: url(../fonts/Starjedi.ttf);
+}
+
+@font-face {
+    font-family: starjout;
+    src: url(../fonts/Starjout.ttf);
+}
