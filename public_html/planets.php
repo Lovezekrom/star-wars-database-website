@@ -202,4 +202,35 @@
     ?>
 </div>
 </body>
+<footer>
+    <div class="footercolumn">
+        <a href="index.html"><img src="img/star_wars_logo.png" alt="Star Wars logo" style="width: 10vw; height: 5vw;
+        justify-content: left; top: 50%; bottom: 50%"></a>
+    </div>
+
+    <div class="footercolumn">
+        Main Pages<br><br>
+        <a href="index.html">Homepage</a> <br>
+        <a href="films.php">Films</a> <br>
+        <a href="planets.php">Planets</a> <br>
+        <a href="people.php">People</a> <br>
+    </div>
+
+    <div class="footercolumn">
+        Information<br><br>
+        <a href="">The Mandalorian</a> <br>
+        <a href="">Darth Vader</a> <br>
+        <a href="">Lightsabers</a> <br>
+        <a href="films.php">More...</a> <br>
+
+    </div>
+
+    <div class="footercolumn">
+        Email: Fakestarwars@gmail.com
+        <br>
+        Ph: +(00) 123 456 789
+        <br><br>
+        Hutt No.123 Lars farm, Tatooine, <br>Tri-planetary system J11
+    </div>
+</footer>
 </html>

@@ -57,12 +57,51 @@ body {
     src: url(../fonts/Starjout.ttf);
 }
 
+
+/* News Bar */
+.newsbar {
+    color: rgba(240, 240, 240, 0.8);
+    margin-top: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    background-color: rgba(15, 15, 15, 1);
+    text-align: center;
+    font-family: Helvetica, serif;
+    font-weight: bold;
+    font-size: 1.5vw;
+}
+
+
+#funfact::before {
+    content: "Star Wars: Fun Facts...";
+    animation: animate infinite 35s;
+    padding-left: 10px;
+}
+
+/* News bar content */
+@keyframes animate {
+
+    25% {
+        content: "Fun Fact: C-3PO and R2-D2 are the only characters to appear in every Star Wars movie";
+    }
+
+    50% {
+        content: "Fun Fact: The alien species from E.T. makes a quick cameo during the Galactic Senate scene in The Phantom Menace.";
+    }
+
+    75% {
+        content: "Fun Fact: Chewbacca’s “voice” was created from a combination of real-life bear, lion, walrus and badger sounds.";
+    }
+}
+/* End of 'News Bar' */
+
 /* SlideShow */
 
 /* Slideshow Link */
 .text a {
     color:#05d7ed;
-    font-family: navfont, Helvetica, serif;
+    font-family: starjedi, Helvetica, serif;
     text-decoration-line: none;
 }
 
@@ -111,6 +150,7 @@ body {
     transition: 0.2s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
+    text-decoration-line: none;
 }
 
 /* Position the "next button" to the right */
@@ -134,18 +174,9 @@ body {
     padding-bottom: 8px;
     padding-left: 15px;
     position: absolute;
-    bottom: 4px;
+    bottom: 0;
     width: 100%;
     text-align: left;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
 }
 
 /* The dots/bullets/indicators */
@@ -171,55 +202,41 @@ body {
 }
 
 @keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
+    0% {opacity: .4}
+    100% {opacity: 1}
 }
 /* End-Of 'Slideshow' */
 
-/* News Bar */
-.newsbar {
-    color: rgba(240, 240, 240, 0.8);
-    margin-top: 15px;
-    margin-bottom: 15px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 100%;
+footer {
+    height: 14vw;
     background-color: rgba(15, 15, 15, 1);
-    text-align: center;
-    font-family: Helvetica, serif;
+    padding: 30px;
+    color: rgba(100, 100, 100, 1);
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 1vw;
+    font-weight: bold;
+    bottom: 0px;
+    margin-top: 50px;
+}
+
+.footercolumn {
+    padding-left: 3vw;
+    padding-right: 3vw;
+    margin: auto;
+}
+
+
+.footercolumn a{
+    margin-top: 50%;
+    margin-bottom: 50%;
+    color: rgba(235, 235, 235, 0.8);
+    font-size: 1vw;
+    text-decoration-line: none;
     font-weight: bold;
 }
 
-#funfact {
-    color: rgba(240, 240, 240, 0.8);
-    margin-top: -8px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 100%;
-    background-color: rgba(15, 15, 15, 1);
-    text-align: center;
-    font-family: Helvetica, serif;
-    font-weight: bold;
+footer a:hover {
+    color: rgba(250, 250, 250, 1);
 }
-#funfact::before {
-    content: "Star Wars: Fun Facts...";
-    animation: animate infinite 40s;
-    padding-left: 10px;
-}
-
-/* News bar content */
-@keyframes animate {
-
-    25% {
-        content: "Fun Fact: C-3PO and R2-D2 are the only characters to appear in every Star Wars movie";
-    }
-
-    50% {
-        content: "Fun Fact: The alien species from E.T. makes a quick cameo during the Galactic Senate scene in The Phantom Menace.";
-    }
-
-    75% {
-        content: "Fun Fact: Chewbacca’s “voice” was created from a combination of real-life bear, lion, walrus and badger sounds.";
-    }
-}
-/* End of 'News Bar' */
