@@ -40,7 +40,7 @@
 
     <!-- Navigation -->
     <div class="container-fluid mb-2">
-        <nav class="nav justify-content-center proj-font-jedi fs-2 topnav">
+        <nav class="nav justify-content-center fs-2 proj-nav proj-font-jedi">
             <a class="nav-item nav-link glow" href="index.html">Home</a>
             <a class="nav-item nav-link glow" href="films.php">Films</a>
             <a class="nav-item nav-link glow" href="planets.php">Planets</a>
@@ -65,7 +65,7 @@
 
 
     <!-- News Bar -->
-    <div class="newsbar">
+    <div class="proj-newsbar">
         <span id="funfact"></span>
     </div>
 
@@ -76,7 +76,7 @@
         <div class="mySlides proj-fade">
             <div class="numbertext"></div>
             <img src="img/mandalorian.png" style="width:100%">
-            <div class="text">
+            <div class="proj-text">
                 The origins of the Mandalorian people are shrouded in mystery, with conflicting accounts and legends
                 passed down through generations. Some believe they descended from...
                 <br>
@@ -87,7 +87,7 @@
         <div class="mySlides proj-fade">
             <div class="numbertext"></div>
             <img src="img/darth-vader.png" style="width:100%">
-            <div class="text">
+            <div class="proj-text">
                 Darth Vader, formerly known as Anakin Skywalker, is one of the most iconic and complex characters
                 in the Star Wars universe. His story is one of tragedy, redemption, and...
                 <br>
@@ -98,7 +98,7 @@
         <div class="mySlides proj-fade">
             <div class="numbertext"></div>
             <img src="img/lightsabers.png" style="width:100%">
-            <div class="text">
+            <div class="proj-text">
                 The lightsaber, a weapon of elegance and deadly precision, is an iconic symbol within the Star Wars
                 universe. More than just a tool for combat, the lightsaber is a reflection of the wielder's connection...
                 <br>
@@ -114,9 +114,9 @@
 
     <!-- The dots/circles -->
     <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="proj-dot" onclick="currentSlide(1)"></span>
+        <span class="proj-dot" onclick="currentSlide(2)"></span>
+        <span class="proj-dot" onclick="currentSlide(3)"></span>
     </div>
 
 
@@ -138,7 +138,7 @@
         function showSlides(n) {
             let i;
             let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
+            let dots = document.getElementsByClassName("proj-dot");
             if (n > slides.length) {
                 slideIndex = 1
             }
