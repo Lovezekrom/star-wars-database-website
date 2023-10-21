@@ -15,7 +15,7 @@
 <body>
 <div class="container-fluid px-5">
     <!-- Logo -->
-    <img class="img-fluid proj-img-width-15 mx-auto d-block mt-4" src="img/star_wars_logo.png" id="main-logo" alt="Star Wars logo"/>
+    <a href="index.html"><img class="img-fluid proj-img-width-15 mx-auto d-block mt-4" src="img/star_wars_logo.png" id="main-logo" alt="Star Wars logo"/></a>
 
     <!-- Navigation -->
     <div class="container-fluid mb-2">
@@ -202,6 +202,7 @@
     ?>
 </div>
 </body>
+
 <footer>
     <div class="footercolumn">
         <a href="index.html"><img src="img/star_wars_logo.png" alt="Star Wars logo" style="width: 10vw; height: 5vw;
