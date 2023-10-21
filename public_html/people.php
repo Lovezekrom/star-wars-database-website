@@ -75,17 +75,16 @@
             $query = "SELECT peopleID, people_name, image_url FROM people";
             $result = $open_review_s_db->query($query);
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                $new_url = str_replace('/revision/latest', '', $row['image_url']);
                 echo "
-                <div class='col text-center position-relative mb-4 grow proj-overflow bg-black mx-auto border border-4 border-warning rounded-5' style='height: 300px; width: 300px'>
+                <div class='col text-center position-relative m-4 grow proj-overflow' style='width: 300px'>
                     <a class='glow stretched-link link-underline link-underline-opacity-0' href='people.php?id={$row['peopleID']}'>
                         {$row['people_name']}
                     </a>
-                    <br>";
-                if ($row['image_url'] != null) {
-                    $new_url = str_replace('/revision/latest', '', $row['image_url']);
-                    echo "<img class='img-fluid' alt='{$row['people_name']}' src='{$new_url}'/>";
-                }
-                echo "</div>";
+                    <div class='d-flex align-items-center justify-content-center bg-black border border-4 border-warning rounded-3 overflow-hidden' style='height: 300px'>
+                        <img class='img-fluid' alt='{$row['people_name']} image' src='{$new_url}'/>
+                    </div>
+                </div>";
             }
             echo '</div>';
         } catch (PDOException $e) {
