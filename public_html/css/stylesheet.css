@@ -5,6 +5,38 @@ body {
     background-size: cover;
 }
 
+.grow:hover {
+    transition: 0.3s ease-in;
+    /*opacity: 0.5;*/
+    scale: 105%;
+    /*background-color: black;*/
+}
+
+.glow:hover {
+    webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+/* Glow affect */
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 5px #f2f2f2;
+    }
+    to {
+        text-shadow: 0 0 10px #f2f2f2;
+    }
+}
+
+@-webkit-keyframes glow1 {
+    from {
+        text-shadow: 0 0 5px #00bfd4;
+    }
+    to {
+        text-shadow: 0 0 10px #00bfd4;
+    }
+}
+
 .proj-nav {
     /*margin-bottom: 10px;*/
     /*text-align: center;*/
@@ -63,7 +95,6 @@ body {
     font-weight: bold;
     font-size: 1.5vw;
 }
-
 
 #funfact::before {
     content: "Star Wars: Fun Facts...";

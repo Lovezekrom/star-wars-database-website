@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Star Wars Database - People</title>
-    <link rel="stylesheet" href="css/matty.css" />
     <link rel="stylesheet" href="css/stylesheet.css" />
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
