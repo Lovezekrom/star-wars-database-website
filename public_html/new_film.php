@@ -17,7 +17,7 @@
 
     <!-- Navigation -->
     <div class="container-fluid mb-2">
-        <nav class="nav justify-content-center proj-font-jedi fs-2 topnav">
+        <nav class="nav justify-content-center fs-2 proj-nav proj-font-jedi">
             <a class="nav-item nav-link glow" href="index.html">Home</a>
             <a class="nav-item nav-link glow" href="films.php">Films</a>
             <a class="nav-item nav-link glow" href="planets.php">Planets</a>
@@ -40,7 +40,7 @@
         </form>
     </div>
 
-    <h1 class="text-white text-center proj-font-jedi">Submit New Film</h1>
+    <h1 class="text-white text-center proj-font-main fw-bold text-break mt-5">Submit New Film</h1>
 
     <form class="row gx-5" action="process_film.php" method="post">
         <div class="col-md-4 col-xs-12 mb-3">

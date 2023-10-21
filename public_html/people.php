@@ -17,7 +17,7 @@
 
     <!-- Navigation -->
     <div class="container-fluid mb-2">
-        <nav class="nav justify-content-center proj-font-jedi fs-2 topnav">
+        <nav class="nav justify-content-center fs-2 proj-nav proj-font-jedi">
             <a class="nav-item nav-link glow" href="index.html">Home</a>
             <a class="nav-item nav-link glow" href="films.php">Films</a>
             <a class="nav-item nav-link glow" href="planets.php">Planets</a>
@@ -66,22 +66,22 @@
     }
     ?>
 
-    <h1 class="text-white text-center proj-font-jedi"><?= $header; ?></h1>
+    <h1 class="text-white text-center proj-font-main fw-bold text-break mt-5"><?= $header; ?></h1>
 
     <?php
     if (!isset($_GET['id'])) {
         try {
-            echo '<div class="row row-cols-auto proj-font-jedi justify-content-center">';
+            echo "<div class='row row-cols-auto proj-font-main justify-content-center'>";
             $query = "SELECT peopleID, people_name, image_url FROM people";
             $result = $open_review_s_db->query($query);
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                 $new_url = str_replace('/revision/latest', '', $row['image_url']);
                 echo "
-                <div class='col text-center position-relative m-4 grow proj-overflow' style='width: 300px'>
-                    <a class='glow stretched-link link-underline link-underline-opacity-0' href='people.php?id={$row['peopleID']}'>
+                <div class='col text-center position-relative m-4 grow overflow-hidden text-nowrap' style='width: 300px'>
+                    <a class='link-light fs-4 fw-bold stretched-link link-underline link-underline-opacity-0' href='people.php?id={$row['peopleID']}'>
                         {$row['people_name']}
                     </a>
-                    <div class='d-flex align-items-center justify-content-center bg-black border border-4 border-warning rounded-3 overflow-hidden' style='height: 300px'>
+                    <div class='d-flex align-items-center justify-content-center bg-black border border-4 border-white rounded-3 overflow-hidden' style='height: 300px'>
                         <img class='img-fluid' alt='{$row['people_name']} image' src='{$new_url}'/>
                     </div>
                 </div>";
@@ -104,7 +104,7 @@
 
             // Person image
             $new_url = str_replace('/revision/latest', '', $currentPerson['image_url']);
-            echo "<img class='mx-auto d-block rounded-2' data-bs-toggle='modal' data-bs-target='#imgPeopleModal' alt='{$currentPerson['people_name']}' width='100%' src='{$new_url}' style='cursor: pointer'/>";
+            echo "<img class='img-fluid mx-auto d-block rounded-2' data-bs-toggle='modal' data-bs-target='#imgPeopleModal' alt='{$currentPerson['people_name']}' width='100%' src='{$new_url}' style='cursor: pointer'/>";
             echo "<br/>";
 
             //<!-- Modal -->
@@ -218,17 +218,11 @@
             echo $row['species_name'];
             echo "<br>";
             echo '</div>';
-
-        
             echo '</div>';
 
-            // Description
-            echo "<b class='proj-font-jedi h4'>Description</b>";
-            echo '<p></p>';
-
             // Starships
-            echo "<b class='proj-font-jedi h4'>Starships</b>";
-            echo '<p>';
+            echo "<b class='fw-bold h2'>Starships</b>";
+            echo '<p class="fs-4">';
             $query = "
                 SELECT starship.starship_name
                 FROM people_starships, starship
@@ -242,8 +236,8 @@
             echo '</p>';
 
             // Vehicles
-            echo "<b class='proj-font-jedi h4'>vehicles</b>";
-            echo '<p>';
+            echo "<b class='fw-bold h2'>Vehicles</b>";
+            echo '<p class="fs-4">';
             $query = "
                 SELECT vehicle.vehicle_name
                 FROM people_vehicles, vehicle
@@ -257,17 +251,19 @@
             echo '</p>';
 
             // Appeared
-            echo "<b class='proj-font-jedi h4'>Appeared in</b>";
-            echo '<p>';
+            echo "<b class='fw-bold h2'>Appeared in</b>";
+            echo '<p class="fs-4">';
             $query = "
-                SELECT film.film_title
+                SELECT film.filmID, film.film_title
                 FROM film_people, film 
                 WHERE {$currentPerson['peopleID']}=film_people.peopleID
                 AND film.filmID=film_people.filmID";
             $result = $open_review_s_db->query($query);
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                echo $row['film_title'];
-                echo " ● ";
+                echo "
+                    <a class='link-light link-underline link-underline-opacity-0 link-underline-opacity-100-hover' href='films.php?id={$row['filmID']}'>
+                        {$row['film_title']}
+                    </a>●";
             }
             echo '</p>';
 
@@ -296,7 +292,7 @@
     <div class="footercolumn">
         Information<br><br>
         <a href="mandalorian_info.html">The Mandalorian</a> <br>
-        <a href="darth_vader_info.html">Darth Vader</a> <br>
+        <a href="darthvader_info.html">Darth Vader</a> <br>
         <a href="lightsaber_info.html">Lightsabers</a> <br>
         <a href="films.php">More...</a> <br>
 

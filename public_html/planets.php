@@ -19,7 +19,7 @@
 
     <!-- Navigation -->
     <div class="container-fluid mb-2">
-        <nav class="nav justify-content-center proj-font-jedi fs-2 topnav">
+        <nav class="nav justify-content-center fs-2 proj-nav proj-font-jedi">
             <a class="nav-item nav-link glow" href="index.html">Home</a>
             <a class="nav-item nav-link glow" href="films.php">Films</a>
             <a class="nav-item nav-link glow" href="planets.php">Planets</a>
@@ -68,22 +68,22 @@
     }
     ?>
 
-    <h1 class="text-white text-center proj-font-jedi"><?= $header; ?></h1>
+    <h1 class="text-white text-center proj-font-main fw-bold text-break mt-5"><?= $header; ?></h1>
 
     <?php
     if (!isset($_GET['id'])) {
         try {
-            echo '<div class="row row-cols-auto proj-font-jedi justify-content-center">';
+            echo "<div class='row row-cols-auto proj-font-main justify-content-center'>";
             $query = "SELECT planetID, planet_name, image_url FROM planet";
             $result = $open_review_s_db->query($query);
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                 $new_url = str_replace('/revision/latest', '', $row['image_url']);
                 echo "
-                 <div class='col text-center position-relative m-4 grow proj-overflow' style='width: 300px'>
-                    <a class='glow stretched-link link-underline link-underline-opacity-0' href='planets.php?id={$row['planetID']}'>
+                <div class='col text-center position-relative m-4 grow overflow-hidden text-nowrap' style='width: 300px'>
+                    <a class='link-light fs-4 fw-bold stretched-link link-underline link-underline-opacity-0' href='planets.php?id={$row['planetID']}'>
                         {$row['planet_name']}
                     </a>
-                    <div class='d-flex align-items-center justify-content-center bg-black border border-4 border-warning rounded-3 overflow-hidden' style='height: 300px'>
+                    <div class='d-flex align-items-center justify-content-center bg-black border border-4 border-white rounded-3 overflow-hidden' style='height: 300px'>
                         <img class='img-fluid' alt='{$row['planet_name']} image' src='{$new_url}'/>
                     </div>
                 </div>";
@@ -106,7 +106,7 @@
 
             // Planet image
             $new_url = str_replace('/revision/latest', '', $currentPlanet['image_url']);
-            echo "<img class='mx-auto d-block rounded-2' data-bs-toggle='modal' data-bs-target='#imgPlanetModal' alt='{$currentPlanet['planet_name']}' width='100%' src='{$new_url}' style='cursor: pointer'/>";
+            echo "<img class='img-fluid mx-auto d-block rounded-2' data-bs-toggle='modal' data-bs-target='#imgPlanetModal' alt='{$currentPlanet['planet_name']}' width='100%' src='{$new_url}' style='cursor: pointer'/>";
             echo "<br/>";
 
             //<!-- Modal -->
@@ -130,7 +130,7 @@
             ";
 
             // Name
-            echo '<div class="mb-2 p-2 proj-bg-deep-grey rounded-2">';
+            echo '<div class="text-capitalize mb-2 p-2 proj-bg-deep-grey rounded-2">';
             echo "<b>Planet</b>";
             echo "<br>";
             echo $currentPlanet['planet_name'];
@@ -138,7 +138,7 @@
             echo '</div>';
 
             // Rotation period
-            echo '<div class="mb-2 p-2 proj-bg-deep-grey rounded-2">';
+            echo '<div class="text-capitalize mb-2 p-2 proj-bg-deep-grey rounded-2">';
             echo "<b>Rotation Period</b>";
             echo "<br>";
             echo $currentPlanet['planet_rotation_period']." hours";
@@ -146,7 +146,7 @@
             echo '</div>';
 
             // Orbital period
-            echo '<div class="mb-2 p-2 proj-bg-deep-grey rounded-2">';
+            echo '<div class="text-capitalize mb-2 p-2 proj-bg-deep-grey rounded-2">';
             echo "<b>Orbital Period</b>";
             echo "<br>";
             echo $currentPlanet['planet_orbital_period']." days";
@@ -154,7 +154,7 @@
             echo '</div>';
 
             // Diameter
-            echo '<div class="mb-2 p-2 proj-bg-deep-grey rounded-2">';
+            echo '<div class="text-capitalize mb-2 p-2 proj-bg-deep-grey rounded-2">';
             echo "<b>Diameter</b>";
             echo "<br>";
             echo $currentPlanet['planet_diameter'].' km';
@@ -162,7 +162,7 @@
             echo '</div>';
 
             // Gravity
-            echo '<div class="mb-2 p-2 proj-bg-deep-grey rounded-2">';
+            echo '<div class="text-capitalize mb-2 p-2 proj-bg-deep-grey rounded-2">';
             echo "<b>Gravity</b>";
             echo "<br>";
             echo $currentPlanet['planet_gravity'];
@@ -170,19 +170,19 @@
             echo '</div>';
 
             // Surface water
-            echo '<div class="mb-2 p-2 proj-bg-deep-grey rounded-2">';
+            echo '<div class="text-capitalize mb-2 p-2 proj-bg-deep-grey rounded-2">';
             echo "<b>Surface water</b>";
             echo "<br>";
-            echo $currentPlanet['planet_surface_water'].'%';
+            echo $currentPlanet['planet_surface_water'].' %';
             echo "<br>";
             echo '</div>';
 
             // Population
-            echo '<div class="mb-2 p-2 proj-bg-deep-grey rounded-2">';
+            echo '<div class="text-capitalize mb-2 p-2 proj-bg-deep-grey rounded-2">';
             echo "<b>Population</b>";
             echo "<br>";
             $population = $currentPlanet['planet_population'];
-            if (is_int($population)) {
+            if (is_numeric($population)) {
                 if ($population >= 0) {
                     echo number_format($population);
                 } else {
@@ -195,22 +195,49 @@
             echo '</div>';
             echo '</div>';
 
-            // Description
-            echo "<b class='proj-font-jedi h4'>Description</b>";
-            echo '<p>';
-            echo '</p>';
-
             // Appeared in
-            echo "<b class='proj-font-jedi h4'>Appeared in</b>";
-            echo '<p>';
+            echo "<b class='fw-bold h2'>Appeared in</b>";
+            echo '<p class="fs-4">';
             $query = "
-                SELECT film.film_title
+                SELECT film.filmID, film.film_title, film.image_url
                 FROM film_planet, film 
                 WHERE {$currentPlanet['planetID']}=film_planet.planetID
                 AND film.filmID=film_planet.filmID";
             $result = $open_review_s_db->query($query);
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                echo $row['film_title'];
+                echo "
+                    <a class='link-light link-underline link-underline-opacity-0 link-underline-opacity-100-hover' href='films.php?id={$row['filmID']}'>
+                        {$row['film_title']}
+                    </a>●";
+            }
+            echo '</p>';
+
+            // Climate
+            echo "<b class='fw-bold h2'>Climate</b>";
+            echo '<p class="text-capitalize fs-4">';
+            $query = "
+                SELECT climate.planet_climate
+                FROM climate, planet_climate
+                WHERE {$currentPlanet['planetID']}=planet_climate.planetID
+                AND planet_climate.climateID=climate.planetclimateID";
+            $result = $open_review_s_db->query($query);
+            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                echo $row['planet_climate'];
+                echo " ● ";
+            }
+            echo '</p>';
+
+            // Terrain
+            echo "<b class='fw-bold h2'>Terrain</b>";
+            echo '<p class="text-capitalize fs-4">';
+            $query = "
+                SELECT terrain.planet_terrain
+                FROM terrain, planet_terrain
+                WHERE {$currentPlanet['planetID']}=planet_terrain.planetID
+                AND planet_terrain.terrainID=terrain.planetterrainID";
+            $result = $open_review_s_db->query($query);
+            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                echo $row['planet_terrain'];
                 echo " ● ";
             }
             echo '</p>';
@@ -241,7 +268,7 @@
     <div class="footercolumn">
         Information<br><br>
         <a href="mandalorian_info.html">The Mandalorian</a> <br>
-        <a href="darth_vader_info.html">Darth Vader</a> <br>
+        <a href="darthvader_info.html">Darth Vader</a> <br>
         <a href="lightsaber_info.html">Lightsabers</a> <br>
         <a href="films.php">More...</a> <br>
 

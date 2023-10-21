@@ -18,7 +18,7 @@
 
     <!-- Navigation -->
     <div class="container-fluid mb-2">
-        <nav class="nav justify-content-center proj-font-jedi fs-2 topnav">
+        <nav class="nav justify-content-center fs-2 proj-nav proj-font-jedi">
             <a class="nav-item nav-link glow" href="index.html">Home</a>
             <a class="nav-item nav-link glow" href="films.php">Films</a>
             <a class="nav-item nav-link glow" href="planets.php">Planets</a>
@@ -27,7 +27,7 @@
     </div>
 
     <!-- Search bar -->
-    <div class="proj-bg-deep-grey rounded-pill">
+    <div class="proj-bg-deep-grey rounded-pill proj-font-main">
         <form class="row g-2 justify-content-center">
             <div class="col ms-3">
                 <label for="search-bar" class="visually-hidden">Search</label>
@@ -67,18 +67,18 @@
         }
     ?>
 
-    <h1 class="text-white text-center proj-font-jedi text-break"><?= $header; ?></h1>
+    <h1 class="text-white text-center proj-font-main fw-bold text-break mt-5"><?= $header; ?></h1>
 
     <?php
         if (!isset($_GET['id'])) {
             try {
                 echo "
-                <div class='row row-cols-auto proj-font-jedi justify-content-center'>
-                    <div class='col text-center position-relative m-4 grow proj-overflow' style='width: 300px'>
-                        <a class='text-white glow stretched-link link-underline link-underline-opacity-0' href='new_film.php'>
+                <div class='row row-cols-auto proj-font-main justify-content-center'>
+                    <div class='col text-center position-relative m-4 grow overflow-hidden text-nowrap' style='width: 300px'>
+                        <a class='link-light fs-4 fw-bold stretched-link link-underline link-underline-opacity-0' href='new_film.php'>
                             Add new film
                         </a>
-                        <div class='text-white font-monospace fs-1 d-flex align-items-center justify-content-center bg-black border border-4 border-light-subtle rounded-3' style='aspect-ratio: 2/3;'>
+                        <div class='text-danger font-monospace fs-1 d-flex align-items-center justify-content-center bg-black border border-4 border-danger rounded-3' style='aspect-ratio: 2/3;'>
                             +
                         </div>
                     </div>";
@@ -86,11 +86,11 @@
                 $result = $open_review_s_db->query($query);
                 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     echo "
-                    <div class='col text-center position-relative m-4 grow proj-overflow' style='width: 300px'>
-                        <a class='glow stretched-link link-underline link-underline-opacity-0' href='films.php?id={$row['filmID']}' >
+                    <div class='col text-center position-relative m-4 grow overflow-hidden text-nowrap' style='width: 300px'>
+                        <a class='link-light fs-4 fw-bold stretched-link link-underline link-underline-opacity-0' href='films.php?id={$row['filmID']}' >
                             {$row['film_title']}
                         </a>
-                        <div class='d-flex align-items-center justify-content-center bg-black border border-4 border-warning rounded-3 overflow-hidden' style='aspect-ratio: 2/3;'>
+                        <div class='d-flex align-items-center justify-content-center bg-black border border-4 border-white rounded-3 overflow-hidden' style='aspect-ratio: 2/3;'>
                             <img class='img-fluid' alt='{$row['film_title']} image' src='{$row['image_url']}'/>
                         </div>
                     </div>";
@@ -101,7 +101,7 @@
             }
         } else {
             try {
-                echo "<div class='container-fluid clearfix p-4 proj-bg-deep-grey text-white rounded-5'>";
+                echo "<div class='container-fluid clearfix p-4 proj-bg-deep-grey text-white rounded-5 text-break'>";
 
                 // Get current film tuple
                 $query = "SELECT * FROM film WHERE filmID={$_GET['id']}";
@@ -109,11 +109,11 @@
                 $currentFilm = $result->fetch(PDO::FETCH_ASSOC);
 
                 // Right panel
-                echo '<div class="float-sm-end bg-white p-2 rounded-3 text-white ms-3">';
+                echo '<div class="float-sm-end bg-white p-2 rounded-3 text-white ms-3" style="width: 20rem;">';
 
                 // Poster
                 $new_url = str_replace('/revision/latest', '', $currentFilm['image_url']);
-                echo "<img class='mx-auto d-block' data-bs-toggle='modal' data-bs-target='#imgFilmModal' alt='poster' height='400' src='{$new_url}' style='cursor: pointer'/>";
+                echo "<img class='img-fluid mx-auto d-block rounded-2' data-bs-toggle='modal' data-bs-target='#imgFilmModal' alt='poster' src='{$new_url}' style='cursor: pointer'/>";
                 echo "<br>";
 
                 //<!-- Modal -->
@@ -174,46 +174,50 @@
                 echo '</div>';
 
                 // Opening crawl
-                echo "<b class='proj-font-jedi h4'>opening crawl</b>";
-                echo '<p><i>';
+                echo "<b class='fw-bold h2'>Opening crawl</b>";
+                echo "<p class='fs-4'><i>";
                 echo $currentFilm['film_opening_crawl'];
                 echo '</i></p>';
 
                 // Characters in the film
-                echo "<b class='proj-font-jedi h4'>Characters</b>";
-                echo "<p>";
+                echo "<b class='fw-bold h2'>Characters</b>";
+                echo "<p class='fs-4'>";
                 $query = "
-                    SELECT distinct people.people_name
+                    SELECT distinct people.peopleID, people.people_name
                     FROM people, film_people, film 
                     WHERE film.filmID={$_GET['id']}
                     and film.filmID = film_people.filmID
                     and film_people.peopleID=people.peopleID";
                 $result = $open_review_s_db->query($query);
                 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                    echo $row['people_name'];
-                    echo " ● ";
+                    echo "
+                    <a class='link-light link-underline link-underline-opacity-0 link-underline-opacity-100-hover' href='people.php?id={$row['peopleID']}'>
+                        {$row['people_name']}
+                    </a>●";
                 }
                 echo "</p>";
 
                 // Planets
-                echo "<b class='proj-font-jedi h4'>Planets</b>";
-                echo "<p>";
+                echo "<b class='fw-bold h2'>Planets</b>";
+                echo "<p class='fs-4'>";
                 $query = "
-                    SELECT distinct planet.planet_name
+                    SELECT distinct planet.planetID, planet.planet_name
                     FROM planet, film_planet, film 
                     WHERE film.filmID={$_GET['id']}
                     and film.filmID = film_planet.filmID
                     and film_planet.planetID=planet.planetID";
                 $result = $open_review_s_db->query($query);
                 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                    echo $row['planet_name'];
-                    echo " ● ";
+                    echo "
+                    <a class='link-light link-underline link-underline-opacity-0 link-underline-opacity-100-hover' href='planets.php?id={$row['planetID']}'>
+                        {$row['planet_name']}
+                    </a>●";
                 }
                 echo "</p>";
 
                 // Species
-                echo "<b class='proj-font-jedi h4'>Species</b>";
-                echo "<p>";
+                echo "<b class='fw-bold h2'>Species</b>";
+                echo "<p class='fs-4'>";
                 $query = "
                     SELECT distinct species.species_name
                     FROM species, film_species, film 
@@ -228,8 +232,8 @@
                 echo "</p>";
 
                 // Starships
-                echo "<b class='proj-font-jedi h4'>Starships</b>";
-                echo "<p>";
+                echo "<b class='fw-bold h2'>Starships</b>";
+                echo "<p class='fs-4'>";
                 $query = "
                     SELECT distinct starship.starship_name
                     FROM starship, film_starships, film 
@@ -244,8 +248,8 @@
                 echo "</p>";
 
                 // Vehicles
-                echo "<b class='proj-font-jedi h4'>vehicles</b>";
-                echo "<p>";
+                echo "<b class='fw-bold h2'>Vehicles</b>";
+                echo "<p class='fs-4'>";
                 $query = "
                     SELECT distinct vehicle.vehicle_name
                     FROM vehicle, film_vehicles, film 
@@ -283,7 +287,7 @@
     <div class="footercolumn">
         Information<br><br>
         <a href="mandalorian_info.html">The Mandalorian</a> <br>
-        <a href="darth_vader_info.html">Darth Vader</a> <br>
+        <a href="darthvader_info.html">Darth Vader</a> <br>
         <a href="lightsaber_info.html">Lightsabers</a> <br>
         <a href="films.php">More...</a> <br>
 
