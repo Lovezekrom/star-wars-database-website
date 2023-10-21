@@ -75,17 +75,16 @@
             $query = "SELECT peopleID, people_name, image_url FROM people";
             $result = $open_review_s_db->query($query);
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                $new_url = str_replace('/revision/latest', '', $row['image_url']);
                 echo "
-                <div class='col text-center position-relative mb-4 grow proj-overflow bg-black mx-auto border border-4 border-warning rounded-5' style='height: 300px; width: 300px'>
+                <div class='col text-center position-relative m-4 grow proj-overflow' style='width: 300px'>
                     <a class='glow stretched-link link-underline link-underline-opacity-0' href='people.php?id={$row['peopleID']}'>
                         {$row['people_name']}
                     </a>
-                    <br>";
-                if ($row['image_url'] != null) {
-                    $new_url = str_replace('/revision/latest', '', $row['image_url']);
-                    echo "<img class='img-fluid' alt='{$row['people_name']}' src='{$new_url}'/>";
-                }
-                echo "</div>";
+                    <div class='d-flex align-items-center justify-content-center bg-black border border-4 border-warning rounded-3 overflow-hidden' style='height: 300px'>
+                        <img class='img-fluid' alt='{$row['people_name']} image' src='{$new_url}'/>
+                    </div>
+                </div>";
             }
             echo '</div>';
         } catch (PDOException $e) {
@@ -105,21 +104,20 @@
 
             // Person image
             $new_url = str_replace('/revision/latest', '', $currentPerson['image_url']);
-            echo "<img class='mx-auto d-block rounded-2' data-bs-toggle='modal' data-bs-target='#imgModal' alt='{$currentPerson['people_name']}' width='100%' src='{$new_url}'/>";
+            echo "<img class='mx-auto d-block rounded-2' data-bs-toggle='modal' data-bs-target='#imgPeopleModal' alt='{$currentPerson['people_name']}' width='100%' src='{$new_url}' style='cursor: pointer'/>";
             echo "<br/>";
-
 
             //<!-- Modal -->
             echo "
-            <div class='text-black modal fade' id='imgModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+            <div class='text-black modal fade' id='imgPeopleModal' tabindex='-1' aria-labelledby='imgPeopleModalLabel' aria-hidden='true'>
               <div class='modal-dialog modal-xl'>
                 <div class='modal-content'>
                   <div class='modal-header'>
-                    <h1 class='modal-title fs-5 text-capitalize' id='exampleModalLabel'>{$currentPerson['people_name']}</h1>
+                    <h1 class='modal-title fs-5 text-capitalize' id='imgPeopleModalLabel'>{$currentPerson['people_name']}</h1>
                     <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                   </div>
                   <div class='modal-body'>
-                    <img class='img-fluid d-block mx-auto' alt='{$currentPerson['people_name']}' src='{$new_url}'/>
+                    <img class='w-100' alt='{$currentPerson['people_name']} image' src='{$new_url}'/>
                   </div>
                   <div class='modal-footer'>
                     <button type='button' class='btn btn-primary' data-bs-dismiss='modal'>Close</button>
@@ -128,16 +126,6 @@
               </div>
             </div>
             ";
-
-
-
-
-
-
-
-
-
-
 
             // Name
             echo '<div class="text-capitalize mb-2 p-2 proj-bg-deep-grey rounded-2">';

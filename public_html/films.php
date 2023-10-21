@@ -67,22 +67,32 @@
         }
     ?>
 
-    <h1 class="text-white text-center proj-font-jedi"><?= $header; ?></h1>
+    <h1 class="text-white text-center proj-font-jedi text-break"><?= $header; ?></h1>
 
     <?php
         if (!isset($_GET['id'])) {
             try {
-                echo '<div class="row row-cols-auto proj-font-jedi justify-content-center">';
+                echo "
+                <div class='row row-cols-auto proj-font-jedi justify-content-center'>
+                    <div class='col text-center position-relative m-4 grow proj-overflow' style='width: 300px'>
+                        <a class='text-white glow stretched-link link-underline link-underline-opacity-0' href='new_film.php'>
+                            Add new film
+                        </a>
+                        <div class='text-white font-monospace fs-1 d-flex align-items-center justify-content-center bg-black border border-4 border-light-subtle rounded-3' style='aspect-ratio: 2/3;'>
+                            +
+                        </div>
+                    </div>";
                 $query = "SELECT * FROM film ORDER BY film_episode_id";
                 $result = $open_review_s_db->query($query);
                 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     echo "
-                    <div class='m-3 col text-center position-relative mb-4 grow proj-overflow bg-black border border-4 border-warning rounded-5' style='aspect-ratio: 2/3; width: 300px'>
-                        <a class='glow stretched-link link-underline link-underline-opacity-0' href='films.php?id={$row['filmID']}'>
+                    <div class='col text-center position-relative m-4 grow proj-overflow' style='width: 300px'>
+                        <a class='glow stretched-link link-underline link-underline-opacity-0' href='films.php?id={$row['filmID']}' >
                             {$row['film_title']}
                         </a>
-                        <br>
-                        <img class='img-fluid' alt='{$row['film_title']}' src='{$row['image_url']}'/>
+                        <div class='d-flex align-items-center justify-content-center bg-black border border-4 border-warning rounded-3 overflow-hidden' style='aspect-ratio: 2/3;'>
+                            <img class='img-fluid' alt='{$row['film_title']} image' src='{$row['image_url']}'/>
+                        </div>
                     </div>";
                 }
                 echo '</div>';
@@ -102,15 +112,42 @@
                 echo '<div class="float-sm-end bg-white p-2 rounded-3 text-white ms-3">';
 
                 // Poster
-                echo "<img class='mx-auto d-block' alt='poster' height='400' src='{$currentFilm['image_url']}'/>";
-                echo "<br/>";
+                $new_url = str_replace('/revision/latest', '', $currentFilm['image_url']);
+                echo "<img class='mx-auto d-block' data-bs-toggle='modal' data-bs-target='#imgFilmModal' alt='poster' height='400' src='{$new_url}' style='cursor: pointer'/>";
+                echo "<br>";
+
+                //<!-- Modal -->
+                echo "
+                <div class='text-black modal fade' id='imgFilmModal' tabindex='-1' aria-labelledby='imgFilmModalLabel' aria-hidden='true'>
+                  <div class='modal-dialog modal-xl'>
+                    <div class='modal-content'>
+                      <div class='modal-header'>
+                        <h1 class='modal-title fs-5 text-capitalize' id='imgFilmModalLabel'>{$currentFilm['film_title']}</h1>
+                        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                      </div>
+                      <div class='modal-body'>
+                        <img class='w-100' alt='{$currentFilm['film_title']} image' src='{$new_url}'/>
+                      </div>
+                      <div class='modal-footer'>
+                        <button type='button' class='btn btn-primary' data-bs-dismiss='modal'>Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                ";
+
+                // Title
+                echo '<div class="text-capitalize mb-2 p-2 proj-bg-deep-grey rounded-2">';
+                echo "<b>Title</b>";
+                echo "<br>";
+                echo $currentFilm['film_title'];
+                echo '</div>';
 
                 // Director
                 echo '<div class="mb-2 p-2 proj-bg-deep-grey rounded-2">';
                 echo "<b>Directed by</b>";
                 echo "<br>";
                 echo $currentFilm['film_director'];
-                echo "<br>";
                 echo '</div>';
 
                 // Producers
@@ -137,10 +174,10 @@
                 echo '</div>';
 
                 // Opening crawl
-                echo "<b class='proj-font-jedi h4'>Description</b>";
-                echo '<p><i>"';
+                echo "<b class='proj-font-jedi h4'>opening crawl</b>";
+                echo '<p><i>';
                 echo $currentFilm['film_opening_crawl'];
-                echo '"</i></p>';
+                echo '</i></p>';
 
                 // Characters in the film
                 echo "<b class='proj-font-jedi h4'>Characters</b>";

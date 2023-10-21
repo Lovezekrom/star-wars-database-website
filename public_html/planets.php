@@ -79,12 +79,13 @@
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                 $new_url = str_replace('/revision/latest', '', $row['image_url']);
                 echo "
-                <div class='col text-center position-relative mb-4 grow proj-overflow bg-black mx-auto border border-4 border-warning rounded-5' style='height: 300px; width: 300px'>
+                 <div class='col text-center position-relative m-4 grow proj-overflow' style='width: 300px'>
                     <a class='glow stretched-link link-underline link-underline-opacity-0' href='planets.php?id={$row['planetID']}'>
                         {$row['planet_name']}
                     </a>
-                    <br>
-                    <img class='img-fluid' alt='{$row['planet_name']}' src='{$new_url}'/>
+                    <div class='d-flex align-items-center justify-content-center bg-black border border-4 border-warning rounded-3 overflow-hidden' style='height: 300px'>
+                        <img class='img-fluid' alt='{$row['planet_name']} image' src='{$new_url}'/>
+                    </div>
                 </div>";
             }
             echo '</div>';
@@ -105,8 +106,28 @@
 
             // Planet image
             $new_url = str_replace('/revision/latest', '', $currentPlanet['image_url']);
-            echo "<img class='mx-auto d-block rounded-2' alt='{$currentPlanet['planet_name']}' width='100%' src='{$new_url}'/>";
+            echo "<img class='mx-auto d-block rounded-2' data-bs-toggle='modal' data-bs-target='#imgPlanetModal' alt='{$currentPlanet['planet_name']}' width='100%' src='{$new_url}' style='cursor: pointer'/>";
             echo "<br/>";
+
+            //<!-- Modal -->
+            echo "
+            <div class='text-black modal fade' id='imgPlanetModal' tabindex='-1' aria-labelledby='imgPlanetModalLabel' aria-hidden='true'>
+              <div class='modal-dialog modal-xl'>
+                <div class='modal-content'>
+                  <div class='modal-header'>
+                    <h1 class='modal-title fs-5 text-capitalize' id='imgPlanetModalLabel'>{$currentPlanet['planet_name']}</h1>
+                    <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                  </div>
+                  <div class='modal-body'>
+                    <img class='w-100' alt='{$currentPlanet['planet_name']} image' src='{$new_url}'/>
+                  </div>
+                  <div class='modal-footer'>
+                    <button type='button' class='btn btn-primary' data-bs-dismiss='modal'>Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            ";
 
             // Name
             echo '<div class="mb-2 p-2 proj-bg-deep-grey rounded-2">';
