@@ -5,41 +5,39 @@ body {
     background-size: cover;
 }
 
-.proj-overflow {
-    color: yellow;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.proj-nav {
+    /*margin-bottom: 10px;*/
+    /*text-align: center;*/
 }
 
-.proj-overflow:hover {
+.proj-nav a {
+    color: yellow;
+    font-size: 3vw;
+    margin-left: 20px;
+    margin-right: 20px;
+    /*color: mintcream;*/
+    /*font-family: navfont, serif;*/
+    /*background: none;*/
+}
+
+.proj-nav a:hover {
     color: white;
+}
+
+.proj-font-main {
+    font-family: Helvetica, serif;
 }
 
 .proj-img-width-15 {
     width: 15%;
 }
 
-.proj-grid-4 {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-}
-
 .proj-font-jedi {
     font-family: starjedi, sans-serif;
 }
 
-.proj-font-jedi a {
+.proj-text-yellow {
     color: yellow;
-}
-
-.proj-font-jedi a:hover {
-    font-family: starjedi, sans-serif;
-    color: white;
-}
-
-.proj-font-jout {
-    font-family: starjout, sans-serif;
 }
 
 .proj-bg-deep-grey {
@@ -52,14 +50,8 @@ body {
     /*src: local(Arial);*/
 }
 
-@font-face {
-    font-family: starjout;
-    src: url(../fonts/Starjout.ttf);
-}
-
-
 /* News Bar */
-.newsbar {
+.proj-newsbar {
     color: rgba(240, 240, 240, 0.8);
     margin-top: 15px;
     padding-top: 20px;
@@ -99,13 +91,13 @@ body {
 /* SlideShow */
 
 /* Slideshow Link */
-.text a {
+.proj-text a {
     color:#05d7ed;
     font-family: starjedi, Helvetica, serif;
     text-decoration-line: none;
 }
 
-.text a:hover {
+.proj-text a:hover {
     webkit-animation: glow1 1s ease-in-out infinite alternate;
     -moz-animation: glow1 1s ease-in-out infinite alternate;
     animation: glow1 1s ease-in-out infinite alternate;
@@ -165,7 +157,7 @@ body {
 }
 
 /* Caption text */
-.text {
+.proj-text {
     font-family: Helvetica, serif;
     color: white;
     font-size: 1.5vw;
@@ -180,7 +172,7 @@ body {
 }
 
 /* The dots/bullets/indicators */
-.dot {
+.proj-dot {
     cursor: pointer;
     height: 15px;
     width: 15px;
@@ -191,7 +183,7 @@ body {
     transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.active, .proj-dot:hover {
     background-color: #717171;
 }
 
