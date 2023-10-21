@@ -49,6 +49,7 @@ body {
 @font-face {
     font-family: starjedi;
     src: url(../fonts/Starjedi.ttf);
+    /*src: local(Arial);*/
 }
 
 @font-face {

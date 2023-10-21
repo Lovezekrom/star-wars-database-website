@@ -72,17 +72,18 @@
     <?php
         if (!isset($_GET['id'])) {
             try {
-                echo '<div class="row row-cols-1 row-cols-sm-3 row-cols-md-5">';
+                echo '<div class="row row-cols-auto proj-font-jedi">';
                 $query = "SELECT filmID, film_title, film_release_date, image_url FROM film";
                 $result = $open_review_s_db->query($query);
                 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<div class='col proj-font-jedi text-center position-relative proj-overflow mb-5 grow'>";
-                    echo "<a class='glow stretched-link link-underline link-underline-opacity-0' href='films.php?id={$row['filmID']}'>";
-                    echo $row['film_title'];
-                    echo "</a>";
-                    echo '<br>';
-                    echo "<img class='img-fluid' alt='{$row['film_title']}' src='{$row['image_url']}'/>";
-                    echo "</div>";
+                    echo "
+                    <div class='col text-center position-relative mb-4 grow proj-overflow bg-black mx-auto border border-4 border-warning rounded-5' style='height: auto; width: 300px'>
+                        <a class='glow stretched-link link-underline link-underline-opacity-0' href='films.php?id={$row['filmID']}'>
+                            {$row['film_title']}
+                        </a>
+                        <br>
+                        <img class='img-fluid' alt='{$row['film_title']}' src='{$row['image_url']}'/>
+                    </div>";
                 }
                 echo '</div>';
             } catch (PDOException $e) {

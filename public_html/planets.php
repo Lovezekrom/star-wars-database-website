@@ -73,26 +73,19 @@
     <?php
     if (!isset($_GET['id'])) {
         try {
-            echo '<div class="row row-cols-1 row-cols-sm-3 row-cols-md-5">';
+            echo '<div class="row row-cols-auto proj-font-jedi">';
             $query = "SELECT planetID, planet_name, image_url FROM planet";
             $result = $open_review_s_db->query($query);
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                echo "<div class='col proj-font-jedi text-center position-relative proj-overflow mb-5 grow'>";
-                echo "<a class='stretched-link link-underline link-underline-opacity-0 glow' href='planets.php?id={$row['planetID']}'>";
-                echo $row['planet_name'];
-                echo "</a>";
-                echo '<br>';
-                if ($row['image_url'] != null) {
-                    $new_url = str_replace('/revision/latest', '', $row['image_url']);
-                    echo "<img class='img-fluid h-100 object-fit-cover rounded-5' alt='{$row['planet_name']}' src='{$new_url}'/>";
-                } else {
-                    echo '
-                    <svg class="rounded-5" role="image" width="200" height="200">
-                        <rect width="200" height="200" fill="white"/>
-                    </svg> 
-                    ';
-                }
-                echo "</div>";
+                $new_url = str_replace('/revision/latest', '', $row['image_url']);
+                echo "
+                <div class='col text-center position-relative mb-4 grow proj-overflow bg-black mx-auto border border-4 border-warning rounded-5' style='height: 300px; width: 300px'>
+                    <a class='glow stretched-link link-underline link-underline-opacity-0 fs-4' href='planets.php?id={$row['planetID']}'>
+                        {$row['planet_name']}
+                    </a>
+                    <br>
+                    <img class='img-fluid' alt='{$row['planet_name']}' src='{$new_url}'/>
+                </div>";
             }
             echo '</div>';
         } catch (PDOException $e) {
