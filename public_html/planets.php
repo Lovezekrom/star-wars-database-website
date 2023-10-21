@@ -73,14 +73,14 @@
     <?php
     if (!isset($_GET['id'])) {
         try {
-            echo '<div class="row row-cols-auto proj-font-jedi">';
+            echo '<div class="row row-cols-auto proj-font-jedi justify-content-center">';
             $query = "SELECT planetID, planet_name, image_url FROM planet";
             $result = $open_review_s_db->query($query);
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                 $new_url = str_replace('/revision/latest', '', $row['image_url']);
                 echo "
                 <div class='col text-center position-relative mb-4 grow proj-overflow bg-black mx-auto border border-4 border-warning rounded-5' style='height: 300px; width: 300px'>
-                    <a class='glow stretched-link link-underline link-underline-opacity-0 fs-4' href='planets.php?id={$row['planetID']}'>
+                    <a class='glow stretched-link link-underline link-underline-opacity-0' href='planets.php?id={$row['planetID']}'>
                         {$row['planet_name']}
                     </a>
                     <br>

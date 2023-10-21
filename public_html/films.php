@@ -72,12 +72,12 @@
     <?php
         if (!isset($_GET['id'])) {
             try {
-                echo '<div class="row row-cols-auto proj-font-jedi">';
+                echo '<div class="row row-cols-auto proj-font-jedi justify-content-center">';
                 $query = "SELECT * FROM film ORDER BY film_episode_id";
                 $result = $open_review_s_db->query($query);
                 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     echo "
-                    <div class='col text-center position-relative mb-4 grow proj-overflow bg-black mx-auto border border-4 border-warning rounded-5' style='height: auto; width: 300px'>
+                    <div class='m-3 col text-center position-relative mb-4 grow proj-overflow bg-black border border-4 border-warning rounded-5' style='aspect-ratio: 2/3; width: 300px'>
                         <a class='glow stretched-link link-underline link-underline-opacity-0' href='films.php?id={$row['filmID']}'>
                             {$row['film_title']}
                         </a>
