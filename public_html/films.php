@@ -112,7 +112,36 @@
                 echo '<div class="float-sm-end bg-white p-2 rounded-3 text-white ms-3">';
 
                 // Poster
-                echo "<img class='mx-auto d-block' alt='poster' height='400' src='{$currentFilm['image_url']}'/>";
+                $new_url = str_replace('/revision/latest', '', $currentFilm['image_url']);
+                echo "<img class='mx-auto d-block' data-bs-toggle='modal' data-bs-target='#imgFilmModal' alt='poster' height='400' src='{$new_url}' style='cursor: pointer'/>";
+                echo "<br>";
+
+                //<!-- Modal -->
+                echo "
+                <div class='text-black modal fade' id='imgFilmModal' tabindex='-1' aria-labelledby='imgFilmModalLabel' aria-hidden='true'>
+                  <div class='modal-dialog modal-xl'>
+                    <div class='modal-content'>
+                      <div class='modal-header'>
+                        <h1 class='modal-title fs-5 text-capitalize' id='imgFilmModalLabel'>{$currentFilm['film_title']}</h1>
+                        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                      </div>
+                      <div class='modal-body'>
+                        <img class='w-100' alt='{$currentFilm['film_title']} image' src='{$new_url}'/>
+                      </div>
+                      <div class='modal-footer'>
+                        <button type='button' class='btn btn-primary' data-bs-dismiss='modal'>Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                ";
+
+                // Title
+                echo '<div class="text-capitalize mb-2 p-2 proj-bg-deep-grey rounded-2">';
+                echo "<b>Title</b>";
+                echo "<br>";
+                echo $currentFilm['film_title'];
+                echo '</div>';
 
                 // Director
                 echo '<div class="mb-2 p-2 proj-bg-deep-grey rounded-2">';

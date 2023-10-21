@@ -104,21 +104,20 @@
 
             // Person image
             $new_url = str_replace('/revision/latest', '', $currentPerson['image_url']);
-            echo "<img class='mx-auto d-block rounded-2' data-bs-toggle='modal' data-bs-target='#imgModal' alt='{$currentPerson['people_name']}' width='100%' src='{$new_url}'/>";
+            echo "<img class='mx-auto d-block rounded-2' data-bs-toggle='modal' data-bs-target='#imgPeopleModal' alt='{$currentPerson['people_name']}' width='100%' src='{$new_url}' style='cursor: pointer'/>";
             echo "<br/>";
-
 
             //<!-- Modal -->
             echo "
-            <div class='text-black modal fade' id='imgModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+            <div class='text-black modal fade' id='imgPeopleModal' tabindex='-1' aria-labelledby='imgPeopleModalLabel' aria-hidden='true'>
               <div class='modal-dialog modal-xl'>
                 <div class='modal-content'>
                   <div class='modal-header'>
-                    <h1 class='modal-title fs-5 text-capitalize' id='exampleModalLabel'>{$currentPerson['people_name']}</h1>
+                    <h1 class='modal-title fs-5 text-capitalize' id='imgPeopleModalLabel'>{$currentPerson['people_name']}</h1>
                     <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                   </div>
                   <div class='modal-body'>
-                    <img class='img-fluid d-block mx-auto' alt='{$currentPerson['people_name']}' src='{$new_url}'/>
+                    <img class='w-100' alt='{$currentPerson['people_name']} image' src='{$new_url}'/>
                   </div>
                   <div class='modal-footer'>
                     <button type='button' class='btn btn-primary' data-bs-dismiss='modal'>Close</button>
@@ -127,16 +126,6 @@
               </div>
             </div>
             ";
-
-
-
-
-
-
-
-
-
-
 
             // Name
             echo '<div class="text-capitalize mb-2 p-2 proj-bg-deep-grey rounded-2">';
