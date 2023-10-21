@@ -71,13 +71,13 @@
     <?php
     if (!isset($_GET['id'])) {
         try {
-            echo '<div class="row row-cols-auto proj-font-jedi">';
+            echo '<div class="row row-cols-auto proj-font-jedi justify-content-center">';
             $query = "SELECT peopleID, people_name, image_url FROM people";
             $result = $open_review_s_db->query($query);
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                 echo "
                 <div class='col text-center position-relative mb-4 grow proj-overflow bg-black mx-auto border border-4 border-warning rounded-5' style='height: 300px; width: 300px'>
-                    <a class='glow stretched-link link-underline link-underline-opacity-0 fs-4' href='people.php?id={$row['peopleID']}'>
+                    <a class='glow stretched-link link-underline link-underline-opacity-0' href='people.php?id={$row['peopleID']}'>
                         {$row['people_name']}
                     </a>
                     <br>";
@@ -119,7 +119,7 @@
                     <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                   </div>
                   <div class='modal-body'>
-                    <img class='img-fluid d-block mx-auto' src='{$new_url}'/>
+                    <img class='img-fluid d-block mx-auto' alt='{$currentPerson['people_name']}' src='{$new_url}'/>
                   </div>
                   <div class='modal-footer'>
                     <button type='button' class='btn btn-primary' data-bs-dismiss='modal'>Close</button>
