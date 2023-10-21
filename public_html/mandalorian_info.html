@@ -65,99 +65,80 @@
             </div>
         </form>
     </div>
+
 </div>
 
-<!-- News Bar -->
-<div class="newsbar">
-    <span id="funfact"></span>
-</div>
+    <div class="description">
+        <h1>The Mandalorian</h1>
 
-<!-- Slideshow container -->
-<div class="slideshow-container">
-
-    <!-- Full-width images with number and caption text -->
-    <div class="mySlides fade">
-        <div class="numbertext"></div>
-        <img src="img/mandalorian.png" style="width:100%">
-        <div class="text">
-            The origins of the Mandalorian people are shrouded in mystery, with conflicting accounts and legends
-            passed down through generations. Some believe they descended from...
-            <br>
-            <a href="mandalorian_info.html">Read More</a>
-        </div>
+        The Mandalorians, a proud and resilient warrior culture in the expansive Star Wars universe, have a rich and
+        storied history that spans millennia. Hailing from the outer rim world of Mandalore, these people are defined by
+        their distinct code of honor, fierce combat skills, and iconic armor.
+        <br>
+        <br>
+        The origins of the Mandalorian people are shrouded in mystery, with conflicting accounts and legends passed down
+        through generations. Some believe they descended from ancient Taung warriors, while others suggest a more
+        diverse origin involving various species and groups coming together in the harsh environment of Mandalore.
+        <br>
+        <br>
+        Central to Mandalorian identity is the Resol'nare, a set of six tenets that guide their way of life. These
+        principles include wearing armor, speaking the Mandalorian language (Mando'a), defending oneself and family,
+        contributing to the clan's welfare, raising children as Mandalorians, and, finally, going into battle as a last
+        resort. These principles forge a strong sense of unity among the Mandalorian people.
+        <br>
+        <br>
+        Mandalorians are renowned for their exceptional combat skills and mastery of various weapons. Their iconic
+        armor, made from the nearly indestructible material beskar, is both a symbol of their identity and a practical
+        means of protection. Each set of armor is unique, reflecting the individual Mandalorian's personality and
+        experiences.
+        <br>
+        <br>
+        Throughout galactic history, the Mandalorians have played a significant role in conflicts, often serving as
+        elite mercenaries or warriors for hire. The Mandalorian-Jedi Wars, a series of conflicts between the Mandalorian
+        people and the Jedi Order, are notable chapters in their history. These wars were marked by fierce battles and
+        showcased the Mandalorians' resilience and adaptability.
+        <br>
+        <br>
+        The Mandalorians faced a devastating event known as "The Great Purge," where the Empire sought to acquire the
+        precious beskar metal, resulting in the near-extinction of the Mandalorian people. This event had a profound
+        impact on their culture and led to the adoption of the "Way of the Mandalore," emphasizing the importance of
+        foundling children and rebuilding their society.
+        <br>
+        <br>
+        One iconic figure in Mandalorian lore is Din Djarin, the titular character in the Disney+ series "The
+        Mandalorian." His journey explores the complexities of Mandalorian identity, the bonds of found family, and the
+        struggle for survival in a galaxy plagued by conflict.
+        <br>
+        <br>
+        As the Star Wars saga continues to unfold, the Mandalorians remain a fascinating and integral part of the
+        galaxy's diverse tapestry, their history and traditions continuing to capture the imagination of fans across the
+        galaxy.
     </div>
 
-    <div class="mySlides fade">
-        <div class="numbertext"></div>
-        <img src="img/darth-vader.png" style="width:100%">
-        <div class="text">
-            Darth Vader, formerly known as Anakin Skywalker, is one of the most iconic and complex characters
-            in the Star Wars universe. His story is one of tragedy, redemption, and...
-            <br>
-            <a href="darth_vader_info.html">Read More</a>
+    <h2 class="element_heading">Characters</h2>
+    <div class="characters">
+
+        <div class="picture">
+            <img src="img/mando_char.png">
+            <h3>Din Djarin</h3>
+        </div>
+        <div class="picture">
+            <img src="img/grogu.png">
+            <h3>Din Grogu</h3>
+        </div>
+        <div class="picture">
+            <img src="img/Bo-Katan-Kryze.png">
+            <h3>Bo-Katan Kryze</h3>
+        </div>
+        <div class="picture">
+            <img src="img/Greef_Karga.png">
+            <h3>Greef Karga</h3>
+        </div>
+        <div class="picture">
+            <img src="img/moff_gideon.png">
+            <h3>Moff Gideon</h3>
         </div>
     </div>
-
-    <div class="mySlides fade">
-        <div class="numbertext"></div>
-        <img src="img/lightsabers.png" style="width:100%">
-        <div class="text">
-            The lightsaber, a weapon of elegance and deadly precision, is an iconic symbol within the Star Wars
-            universe. More than just a tool for combat, the lightsaber is a reflection of the wielder's connection...
-            <br>
-            <a href="lightsaber_info.html">Read More</a>
-        </div>
-    </div>
-
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-<br>
-
-<!-- The dots/circles -->
-<div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-</div>
-
-
-<!-- Slideshow Java -->
-<script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
-
-    // Next/previous controls
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    // Thumbnail image controls
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = slides.length
-        }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-    }
-</script>
 
 </body>
 <footer>

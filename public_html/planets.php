@@ -219,9 +219,9 @@
 
     <div class="footercolumn">
         Information<br><br>
-        <a href="">The Mandalorian</a> <br>
-        <a href="">Darth Vader</a> <br>
-        <a href="">Lightsabers</a> <br>
+        <a href="mandalorian_info.html">The Mandalorian</a> <br>
+        <a href="darth_vader_info.html">Darth Vader</a> <br>
+        <a href="lightsaber_info.html">Lightsabers</a> <br>
         <a href="films.php">More...</a> <br>
 
     </div>
