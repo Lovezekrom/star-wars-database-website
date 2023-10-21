@@ -42,35 +42,40 @@
 
     <h1 class="text-white text-center proj-font-jedi">Submit New Film</h1>
 
-    <form class="row gx-5">
+    <form class="row gx-5" action="process_film.php" method="post">
         <div class="col-md-4 col-xs-12 mb-3">
-            <label for="inputName" class="form-label text-white">Film name</label>
-            <input type="text" class="form-control" id="inputName" placeholder="Enter film's name">
+            <label for="inputTitle" class="form-label text-white">Film title</label>
+            <input type="text" class="form-control" id="inputTitle" name="inputTitle" placeholder="Enter film's title">
         </div>
 
         <div class="col-md-4 col-xs-12 mb-3">
-            <label for="inputDirector" class="form-label text-white">Director first name</label>
-            <input type="text" class="form-control" id="inputDirector" placeholder="Enter director's first name">
+            <label for="inputFirstName" class="form-label text-white">Director first name</label>
+            <input type="text" class="form-control" id="inputFirstName" name="inputFirstName" placeholder="Enter director's first name">
         </div>
 
         <div class="col-md-4 col-xs-12 mb-3">
-            <label for="inputDirector" class="form-label text-white">Director last name</label>
-            <input type="text" class="form-control" id="inputDirector" placeholder="Enter director's last name">
+            <label for="inputLastName" class="form-label text-white">Director last name</label>
+            <input type="text" class="form-control" id="inputLastName" name="inputLastName" placeholder="Enter director's last name">
         </div>
 
         <div class="col-md-12 col-xs-12 mb-3">
             <label for="inputOpening" class="form-label text-white">Opening crawl</label>
-            <textarea class="form-control" id="inputOpening" rows="5" placeholder="Enter the opening crawl"></textarea>
+            <textarea class="form-control" id="inputOpening" name="inputOpening" rows="5" placeholder="Enter the opening crawl"></textarea>
         </div>
 
-        <div class="col-md-6 col-xs-12 mb-3">
+        <div class="col-md-4 col-xs-12 mb-3">
+            <label for="inputEpisodeNum" class="form-label text-white">Episode number</label>
+            <input type="number" class="form-control" id="inputEpisodeNum" name="inputEpisodeNum" placeholder="Enter the episode number">
+        </div>
+
+        <div class="col-md-4 col-xs-12 mb-3">
             <label for="inputDate" class="form-label text-white">Release date</label>
-            <input type="date" class="form-control" id="inputDate">
+            <input type="date" class="form-control" id="inputDate" name="inputDate">
         </div>
 
-        <div class="col-md-6 col-xs-12 mb-3">
+        <div class="col-md-4 col-xs-12 mb-3">
             <label for="inputImageLink" class="form-label text-white">Film poster URL</label>
-            <input type="url" class="form-control" id="inputImageLink" placeholder="Enter poster URL">
+            <input type="url" class="form-control" id="inputImageLink" name="inputImageLink" placeholder="Enter poster URL">
         </div>
 
         <div class="col-12 col-md-12 mt-3">

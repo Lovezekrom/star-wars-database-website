@@ -73,7 +73,7 @@
         if (!isset($_GET['id'])) {
             try {
                 echo '<div class="row row-cols-auto proj-font-jedi">';
-                $query = "SELECT filmID, film_title, film_release_date, image_url FROM film";
+                $query = "SELECT * FROM film ORDER BY film_episode_id";
                 $result = $open_review_s_db->query($query);
                 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     echo "
