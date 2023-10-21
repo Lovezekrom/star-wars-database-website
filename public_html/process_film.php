@@ -23,7 +23,7 @@
         $stmt->bindParam(':film_title', $inputTitle, PDO::PARAM_STR);
         $stmt->bindParam(':film_episode_id', $inputEpisodeNum, PDO::PARAM_INT);
         $stmt->bindParam(':film_opening_crawl', $inputOpening, PDO::PARAM_STR);
-        $inputFullName = $inputFirstName.$inputLastName;
+        $inputFullName = "{$inputFirstName} {$inputLastName}";
         $stmt->bindParam(':film_director', $inputFullName, PDO::PARAM_STR);
         $stmt->bindParam(':film_release_date', $inputDate, PDO::PARAM_STR);
         $stmt->bindParam(':image_url', $inputImageLink, PDO::PARAM_STR);
