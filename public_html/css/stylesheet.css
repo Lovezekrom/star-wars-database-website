@@ -244,14 +244,14 @@ footer {
     margin-top: 50px;
 }
 
-.footercolumn {
+.footer-column {
     padding-left: 3vw;
     padding-right: 3vw;
     margin: auto;
 }
 
 
-.footercolumn a{
+.footer-column a{
     margin-top: 50%;
     margin-bottom: 50%;
     color: rgba(235, 235, 235, 0.8);
