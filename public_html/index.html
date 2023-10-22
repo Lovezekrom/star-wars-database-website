@@ -38,137 +38,123 @@ Star Wars Lightsaber, Lightsaber">
     </xml><![endif]-->
 </head>
 <body>
-<div class="container-fluid px-5">
-    <!-- Logo -->
-    <a href="index.html"><img class="img-fluid proj-img-width-15 mx-auto d-block mt-4" src="img/star_wars_logo.png"
-                              id="main-logo" alt="Star Wars logo"/></a>
+<header>
+    <div class="container-fluid px-5">
+        <!-- Logo -->
+        <a href="index.html"><img class="img-fluid proj-img-width-15 mx-auto d-block mt-4" src="img/star_wars_logo.png"
+                                  id="main-logo" alt="Star Wars logo"/></a>
 
-    <!-- Navigation -->
-    <div class="container-fluid mb-2">
-        <nav class="nav justify-content-center fs-2 proj-nav proj-font-jedi">
-            <a class="nav-item nav-link glow" href="index.html">Home</a>
-            <a class="nav-item nav-link glow" href="films.php">Films</a>
-            <a class="nav-item nav-link glow" href="planets.php">Planets</a>
-            <a class="nav-item nav-link glow" href="people.php">People</a>
-        </nav>
+        <!-- Navigation -->
+        <div class="container-fluid mb-2">
+            <nav class="nav justify-content-center fs-2 proj-nav proj-font-jedi">
+                <a class="nav-item nav-link proj-glow" href="index.html">Home</a>
+                <a class="nav-item nav-link proj-glow" href="films.php">Films</a>
+                <a class="nav-item nav-link proj-glow" href="planets.php">Planets</a>
+                <a class="nav-item nav-link proj-glow" href="people.php">People</a>
+            </nav>
+        </div>
     </div>
-
-    <!-- Search bar -->
-    <div class="proj-bg-deep-grey rounded-pill">
-        <form class="row g-2 justify-content-center">
-            <div class="col ms-3">
-                <label for="search-bar" class="visually-hidden">Search</label>
-                <input class="form-control mb-2 ms-2 border-0 fs-4" id="search-bar" placeholder="Search..."
-                       type="text"/>
-            </div>
-            <div class="col-auto">
-                <button class="btn btn-lg mt-1 me-2" type="submit">
-                    <i class="material-icons text-white">search</i>
-                </button>
-            </div>
-        </form>
-    </div>
-
-
-    <!-- News Bar -->
-    <div class="proj-newsbar">
-        <span id="funfact"></span>
-    </div>
-
-    <!-- Slideshow container -->
-    <div class="slideshow-container">
-
-        <!-- Full-width images with number and caption text -->
-        <div class="mySlides proj-fade">
-            <div class="numbertext"></div>
-            <img src="img/mandalorian.png" alt="The Mandalorian and Din Grogu" style="width:100%">
-            <div class="proj-text">
-                The origins of the Mandalorian people are shrouded in mystery, with conflicting accounts and legends
-                passed down through generations. Some believe they descended from...
-                <br>
-                <a href="mandalorian_info.html">Read More</a>
-            </div>
+</header>
+<main>
+    <div class="container-fluid px-5">
+        <!-- News Bar -->
+        <div class="proj-news-bar">
+            <span id="fun-fact"></span>
         </div>
 
-        <div class="mySlides proj-fade">
-            <div class="numbertext"></div>
-            <img src="img/darth-vader.png" alt="Darth Vader" style="width:100%">
-            <div class="proj-text">
-                Darth Vader, formerly known as Anakin Skywalker, is one of the most iconic and complex characters
-                in the Star Wars universe. His story is one of tragedy, redemption, and...
-                <br>
-                <a href="darth_vader_info.html">Read More</a>
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides proj-fade">
+                <div class="numbertext"></div>
+                <img src="img/mandalorian.png" alt="The Mandalorian and Din Grogu" style="width:100%">
+                <div class="proj-text">
+                    The origins of the Mandalorian people are shrouded in mystery, with conflicting accounts and legends
+                    passed down through generations. Some believe they descended from...
+                    <br>
+                    <a href="mandalorian_info.html">Read More</a>
+                </div>
             </div>
+
+            <div class="mySlides proj-fade">
+                <div class="numbertext"></div>
+                <img src="img/darth-vader.png" alt="Darth Vader" style="width:100%">
+                <div class="proj-text">
+                    Darth Vader, formerly known as Anakin Skywalker, is one of the most iconic and complex characters
+                    in the Star Wars universe. His story is one of tragedy, redemption, and...
+                    <br>
+                    <a href="darth_vader_info.html">Read More</a>
+                </div>
+            </div>
+
+            <div class="mySlides proj-fade">
+                <div class="numbertext"></div>
+                <img src="img/lightsabers.png" alt="Anakin Skywalker holding Lightsabers" style="width:100%">
+                <div class="proj-text">
+                    The lightsaber, a weapon of elegance and deadly precision, is an iconic symbol within the Star Wars
+                    universe. More than just a tool for combat, the lightsaber is a reflection of the wielder's
+                    connection...
+                    <br>
+                    <a href="lightsaber_info.html">Read More</a>
+                </div>
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+            <span class="proj-dot" onclick="currentSlide(1)"></span>
+            <span class="proj-dot" onclick="currentSlide(2)"></span>
+            <span class="proj-dot" onclick="currentSlide(3)"></span>
         </div>
 
-        <div class="mySlides proj-fade">
-            <div class="numbertext"></div>
-            <img src="img/lightsabers.png" alt="Anakin Skywalker holding Lightsabers" style="width:100%">
-            <div class="proj-text">
-                The lightsaber, a weapon of elegance and deadly precision, is an iconic symbol within the Star Wars
-                universe. More than just a tool for combat, the lightsaber is a reflection of the wielder's
-                connection...
-                <br>
-                <a href="lightsaber_info.html">Read More</a>
-            </div>
-        </div>
 
-        <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <!-- Slideshow Java -->
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            // Next/previous controls
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            // Thumbnail image controls
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("proj-dot");
+                if (n > slides.length) {
+                    slideIndex = 1
+                }
+                if (n < 1) {
+                    slideIndex = slides.length
+                }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+        </script>
+
     </div>
-    <br>
 
-    <!-- The dots/circles -->
-    <div style="text-align:center">
-        <span class="proj-dot" onclick="currentSlide(1)"></span>
-        <span class="proj-dot" onclick="currentSlide(2)"></span>
-        <span class="proj-dot" onclick="currentSlide(3)"></span>
-    </div>
-
-
-    <!-- Slideshow Java -->
-    <script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        // Next/previous controls
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        // Thumbnail image controls
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("proj-dot");
-            if (n > slides.length) {
-                slideIndex = 1
-            }
-            if (n < 1) {
-                slideIndex = slides.length
-            }
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
-        }
-    </script>
-
-</div>
-
-<img src="img/homepage_decription.png" style="width: 60%; margin-left: 20%"
-     alt="Unleash your inner Star Wars fan! Dive into our film database, explore unique planets, and meet iconic characters. Your ultimate source for the galaxy's most epic adventures.">
-
-</body>
+    <img src="img/homepage_decription.png" style="width: 60%; margin-left: 20%"
+         alt="Unleash your inner Star Wars fan! Dive into our film database, explore unique planets, and meet iconic characters. Your ultimate source for the galaxy's most epic adventures.">
+</main>
 <footer>
     <div class="footer-column">
         <a href="index.html"><img src="img/star_wars_logo.png" alt="Star Wars logo" style="width: 10vw; height: 5vw;
@@ -200,4 +186,5 @@ Star Wars Lightsaber, Lightsaber">
         Hutt No.123 Lars farm, Tatooine, <br>Tri-planetary system J11
     </div>
 </footer>
+</body>
 </html>

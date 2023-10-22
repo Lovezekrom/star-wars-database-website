@@ -5,14 +5,14 @@ body {
     background-size: cover;
 }
 
-.grow:hover {
+/*Increase size of element*/
+.proj-grow:hover {
     transition: 0.3s ease-in;
-    /*opacity: 0.5;*/
     scale: 105%;
-    /*background-color: black;*/
 }
 
-.glow:hover {
+/*Glow on hover*/
+.proj-glow:hover {
     webkit-animation: glow 1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
@@ -28,28 +28,12 @@ body {
     }
 }
 
-@-webkit-keyframes glow1 {
-    from {
-        text-shadow: 0 0 5px #00bfd4;
-    }
-    to {
-        text-shadow: 0 0 10px #00bfd4;
-    }
-}
-
-.proj-nav {
-    /*margin-bottom: 10px;*/
-    /*text-align: center;*/
-}
-
+/*Nav bar text colour*/
 .proj-nav a {
     color: yellow;
     font-size: 3vw;
     margin-left: 20px;
     margin-right: 20px;
-    /*color: mintcream;*/
-    /*font-family: navfont, serif;*/
-    /*background: none;*/
 }
 
 .proj-nav a:hover {
@@ -64,26 +48,22 @@ body {
     width: 15%;
 }
 
-.proj-font-jedi {
-    font-family: starjedi, sans-serif;
-}
-
-.proj-text-yellow {
-    color: yellow;
-}
-
-.proj-bg-deep-grey {
-    background: #343434;
-}
-
 @font-face {
     font-family: starjedi;
     src: url(../fonts/Starjedi.ttf);
     /*src: local(Arial);*/
 }
 
+.proj-font-jedi {
+    font-family: starjedi, sans-serif;
+}
+
+.proj-bg-deep-grey {
+    background: #343434;
+}
+
 /* News Bar */
-.proj-newsbar {
+.proj-news-bar {
     color: rgba(240, 240, 240, 0.8);
     margin-top: 15px;
     padding-top: 20px;
@@ -96,7 +76,7 @@ body {
     font-size: 1.5vw;
 }
 
-#funfact::before {
+#fun-fact::before {
     content: "Star Wars: Fun Facts...";
     animation: animate infinite 35s;
     padding-left: 10px;

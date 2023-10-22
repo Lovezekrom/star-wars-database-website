@@ -20,26 +20,11 @@
         <!-- Navigation -->
         <div class="container-fluid mb-2">
             <nav class="nav justify-content-center fs-2 proj-nav proj-font-jedi">
-                <a class="nav-item nav-link glow" href="index.html">Home</a>
-                <a class="nav-item nav-link glow" href="films.php">Films</a>
-                <a class="nav-item nav-link glow" href="planets.php">Planets</a>
-                <a class="nav-item nav-link glow" href="people.php">People</a>
+                <a class="nav-item nav-link proj-glow" href="index.html">Home</a>
+                <a class="nav-item nav-link proj-glow" href="films.php">Films</a>
+                <a class="nav-item nav-link proj-glow" href="planets.php">Planets</a>
+                <a class="nav-item nav-link proj-glow" href="people.php">People</a>
             </nav>
-        </div>
-
-        <!-- Search bar -->
-        <div class="proj-bg-deep-grey rounded-pill">
-            <form class="row g-2 justify-content-center">
-                <div class="col ms-3">
-                    <label for="search-bar" class="visually-hidden">Search</label>
-                    <input class="form-control mb-2 ms-2 border-0 fs-4" id="search-bar" placeholder="Search..." type="text"/>
-                </div>
-                <div class="col-auto">
-                    <button class="btn btn-lg mt-1 me-2" type="submit">
-                        <i class="material-icons text-white">search</i>
-                    </button>
-                </div>
-            </form>
         </div>
     </div>
 </header>
