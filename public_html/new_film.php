@@ -65,7 +65,7 @@
 
         <div class="col-md-4 col-xs-12 mb-3">
             <label for="inputEpisodeNum" class="form-label text-white">Episode number</label>
-            <input type="number" class="form-control" id="inputEpisodeNum" name="inputEpisodeNum" placeholder="Enter the episode number" required>
+            <input type="number" class="form-control" id="inputEpisodeNum" name="inputEpisodeNum" placeholder="Enter the episode number">
         </div>
 
         <div class="col-md-4 col-xs-12 mb-3">
@@ -78,7 +78,7 @@
             <input type="url" class="form-control" id="inputImageLink" name="inputImageLink" placeholder="Enter poster URL" required>
         </div>
 
-        <div class="col-12 col-md-12 mt-3">
+        <div class="col-12 col-md-12 mt-3 d-flex justify-content-center">
             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
         </div>
     </form>
