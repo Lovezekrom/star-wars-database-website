@@ -41,9 +41,7 @@
     </div>
     <h1 class="text-white text-center proj-font-main fw-bold text-break mt-5">Success!</h1>
     <div class="container-fluid d-flex justify-content-center">
-        <button type="button" class="btn btn-success btn-lg">
-            Return
-        </button>
+        <a class="btn btn-success btn-lg" href="films.php" role="button">Return</a>
     </div>
 </div
 </body>
